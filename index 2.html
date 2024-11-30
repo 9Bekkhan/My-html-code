@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> важных дат</title>
+    <style>
+        /* Общий стиль для body */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        /* Стиль для заголовка */
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        /* Стили для списка */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #1e1e1e;
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        li:hover {
+            background: #272727;
+            transform: scale(1.02);
+            transition: 0.3s ease;
+        }
+
+        /* Дата и событие */
+        .date {
+            font-weight: bold;
+            color: #76c7c0;
+        }
+
+        .event {
+            font-style: italic;
+            color: #b0bec5;
+        }
+    </style>
+</head>
+<body>
+    <h1>важных дат</h1>
+    <ul id="dateList"></ul>
+
+    <script>
+        // Массив дат
+        const dates = [
+            { date: "2024-06-28", event: "Моё др" },
+            { date: "2024-01-01", event: "Новый год" },
+            { date: "2024-02-14", event: "День святого Валентина" },
+            { date: "2024-03-08", event: "Международный женский день" },
+            { date: "2024-05-09", event: "День Победы" },
+            { date: "2024-12-31", event: "Канун Нового года" }
+        ];
+
+        // Функция для отображения списка дат
+        function displayDates() {
+            const dateList = document.getElementById("dateList"); // Получаем элемент <ul>
+
+            dates.forEach(({ date, event }) => {
+                const listItem = document.createElement("li"); // Создаём <li>
+
+                // Создаем элементы для даты и события
+                const dateElement = document.createElement("span");
+                dateElement.className = "date";
+                dateElement.textContent = date;
+
+                const eventElement = document.createElement("span");
+                eventElement.className = "event";
+                eventElement.textContent = event;
+
+                // Добавляем их в <li>
+                listItem.appendChild(eventElement);
+                listItem.appendChild(dateElement);
+               
+
+                // Добавляем <li> в <ul>
+                dateList.appendChild(listItem);
+            });
+        }
+
+        // Вызываем функцию на событие onLoad
+        window.onload = displayDates;
+    </script>
+</body>
+</html>
+
